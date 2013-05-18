@@ -1,0 +1,9 @@
+server {
+    listen 80 default;
+    
+    access_log <%= node['nginx']['log_dir'] %>/target_access.log;
+    error_log <%= node['nginx']['log_dir'] %>/target_error.log;
+                                                                                                                                                                                                           
+    keepalive_timeout 10;                                                                                                                                                                                   
+    root /var/www/public;
+}
