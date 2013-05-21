@@ -10,7 +10,7 @@
   "dependencies": {
     "nginx": ">= 0.0.0",
     "application_ruby": ">= 0.0.0",
-    "unicorn": ">= 0.0.0"
+    "rvm": ">= 0.0.0"
   },
   "recommendations": {
   },
