@@ -37,7 +37,7 @@ GIT
 PATH
   remote: site-cookbooks/lttapp
   specs:
-    lttapp (0.1.1)
+    lttapp (0.1.2)
       application_ruby (>= 0.0.0)
       nginx (>= 0.0.0)
       rvm (>= 0.0.0)
