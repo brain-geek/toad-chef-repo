@@ -1,6 +1,14 @@
 SITE
   remote: http://community.opscode.com/api/v1
   specs:
+    apache2 (1.6.2)
+    application (2.0.2)
+    application_ruby (1.1.2)
+      apache2 (>= 0.0.0)
+      application (>= 0.0.0)
+      passenger_apache2 (>= 0.0.0)
+      runit (~> 1.0)
+      unicorn (>= 0.0.0)
     apt (1.9.2)
     build-essential (1.4.0)
     nginx (1.6.0)
@@ -10,9 +18,13 @@ SITE
       runit (>= 0.0.0)
       yum (>= 0.0.0)
     ohai (1.1.8)
+    passenger_apache2 (2.0.0)
+      apache2 (>= 1.0.4)
+      build-essential (>= 0.0.0)
     runit (1.1.4)
       build-essential (>= 0.0.0)
       yum (>= 0.0.0)
+    unicorn (1.2.2)
     yum (2.2.2)
 
 GIT
@@ -23,6 +35,7 @@ GIT
     rvm (0.9.1)
 
 DEPENDENCIES
+  application_ruby (>= 0)
   build-essential (>= 0)
   nginx (>= 0)
   rvm (>= 0)
