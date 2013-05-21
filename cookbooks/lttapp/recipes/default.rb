@@ -39,21 +39,20 @@ application "lttapp" do
   repository "git://github.com/brain-geek/load_test_target_app.git"
   revision "master"
 
-  before_restart do
-    exclude_env_gems = ['development', 'test']
+  # before_restart do
+  #   exclude_env_gems = ['development', 'test']
 
-    # rvm_shell "install_gems" do
-    #   user        "brain"
-    #   group       "brain"
-    #   cwd         "#{node[:application_path]}/current"
-    #   code        %{bundle install --gemfile #{node[:application_path]}/current/Gemfile --path #{node[:application_path]}/shared/bundle --deployment --quiet --without #{exclude_env_gems.join(' ')}}
-    # end
-  end
+  #   rvm_shell "install_gems" do
+  #     user        "brain"
+  #     group       "brain"
+  #     cwd         "#{node[:application_path]}/current"
+  #     code        %{bundle install --gemfile #{node[:application_path]}/current/Gemfile --path #{node[:application_path]}/shared/bundle --deployment --quiet --without #{exclude_env_gems.join(' ')}}
+  #   end
+  # end
 
   # migration_command "cd #{node[:application_path]}/current && rake prepare_data"
   # restart_command  "cd #{node[:application_path]}/current && bundle exec unicorn_rails -D -c /etc/unicorn/lttapp.rb"
 
-  # Apply the rails LWRP from application_ruby
   rails do
     database_template "database_sqlite.yml.erb"
     bundler false
