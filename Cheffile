@@ -1,7 +1,5 @@
   site 'http://community.opscode.com/api/v1'
 
-  cookbook "nginx"
-  cookbook "build-essential"
-  cookbook "application_ruby"
-  
   cookbook "rvm",               git: "https://github.com/fnichol/chef-rvm.git", ref: '24ecbb0'
+
+  cookbook "lttapp", :path => 'site-cookbooks/lttapp'

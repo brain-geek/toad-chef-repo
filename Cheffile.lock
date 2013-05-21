@@ -34,9 +34,15 @@ GIT
   specs:
     rvm (0.9.1)
 
+PATH
+  remote: site-cookbooks/lttapp
+  specs:
+    lttapp (0.1.1)
+      application_ruby (>= 0.0.0)
+      nginx (>= 0.0.0)
+      rvm (>= 0.0.0)
+
 DEPENDENCIES
-  application_ruby (>= 0)
-  build-essential (>= 0)
-  nginx (>= 0)
+  lttapp (>= 0)
   rvm (>= 0)
 
