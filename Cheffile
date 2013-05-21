@@ -1,0 +1,6 @@
+  site 'http://community.opscode.com/api/v1'
+
+  cookbook "nginx"
+  cookbook "build-essential"
+  
+  cookbook "rvm",               git: "https://github.com/fnichol/chef-rvm.git"
