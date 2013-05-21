@@ -8,7 +8,7 @@
 #
 
 include_recipe "nginx"
-include_recipe "rvm"
+include_recipe "rvm::user"
 
 template "#{node['nginx']['dir']}/sites-available/target_site" do
   source "nginx.conf.erb"
@@ -42,12 +42,12 @@ application "lttapp" do
   before_restart do
     exclude_env_gems = ['development', 'test']
 
-    rvm_shell "install_gems" do
-      user        "brain"
-      group       "brain"
-      cwd         "#{node[:application_path]}/current"
-      code        %{bundle install --gemfile #{node[:application_path]}/current/Gemfile --path #{node[:application_path]}/shared/bundle --deployment --quiet --without #{exclude_env_gems.join(' ')}}
-    end
+    # rvm_shell "install_gems" do
+    #   user        "brain"
+    #   group       "brain"
+    #   cwd         "#{node[:application_path]}/current"
+    #   code        %{bundle install --gemfile #{node[:application_path]}/current/Gemfile --path #{node[:application_path]}/shared/bundle --deployment --quiet --without #{exclude_env_gems.join(' ')}}
+    # end
   end
 
   # migration_command "cd #{node[:application_path]}/current && rake prepare_data"
