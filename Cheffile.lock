@@ -3,7 +3,6 @@ SITE
   specs:
     apt (1.9.2)
     build-essential (1.4.0)
-    chef_gem (0.1.0)
     nginx (1.6.0)
       apt (>= 0.0.0)
       build-essential (>= 0.0.0)
@@ -18,11 +17,10 @@ SITE
 
 GIT
   remote: https://github.com/fnichol/chef-rvm.git
-  ref: master
-  sha: 7038fb8c518d0d7785767de215b1ae463f237973
+  ref: 24ecbb0
+  sha: 24ecbb02890a64e58fd994a8b66991f44d664799
   specs:
     rvm (0.9.1)
-      chef_gem (>= 0.0.0)
 
 DEPENDENCIES
   build-essential (>= 0)
