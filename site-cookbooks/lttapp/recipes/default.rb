@@ -19,6 +19,10 @@ end
 
 nginx_site "target_site", :enable => true, :notifies => :immediately
 
+package :git do
+  action :install
+end
+
 application "lttapp" do
   action :deploy
 
