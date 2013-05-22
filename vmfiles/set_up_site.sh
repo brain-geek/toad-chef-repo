@@ -11,4 +11,7 @@ sleep 30
 knife bootstrap $IP -x brain -N $HOSTNAME -P password --sudo
 
 knife node run_list add $HOSTNAME 'role[simple_webserver]'
+
+sleep 15
+
 knife ssh name:$HOSTNAME "sudo chef-client" -x brain -a ipaddress -P password
