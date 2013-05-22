@@ -4,7 +4,3 @@
 
   cookbook "lttapp", :path => 'site-cookbooks/lttapp'
   cookbook "toad", :path => 'site-cookbooks/toad'
-
-  cookbook "sudo"
-
-  cookbook 'user'
