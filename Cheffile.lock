@@ -24,7 +24,9 @@ SITE
     runit (1.1.4)
       build-essential (>= 0.0.0)
       yum (>= 0.0.0)
+    sudo (2.1.2)
     unicorn (1.2.2)
+    user (0.3.0)
     yum (2.2.2)
 
 GIT
@@ -42,7 +44,15 @@ PATH
       nginx (>= 0.0.0)
       rvm (>= 0.0.0)
 
+PATH
+  remote: site-cookbooks/toad
+  specs:
+    toad (0.1.0)
+
 DEPENDENCIES
   lttapp (>= 0)
   rvm (>= 0)
+  sudo (>= 0)
+  toad (>= 0)
+  user (>= 0)
 

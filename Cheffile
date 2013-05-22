@@ -3,3 +3,8 @@
   cookbook "rvm",               git: "https://github.com/fnichol/chef-rvm.git", ref: '24ecbb0'
 
   cookbook "lttapp", :path => 'site-cookbooks/lttapp'
+  cookbook "toad", :path => 'site-cookbooks/toad'
+
+  cookbook "sudo"
+
+  cookbook 'user'
