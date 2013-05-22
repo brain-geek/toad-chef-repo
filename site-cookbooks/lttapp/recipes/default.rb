@@ -19,7 +19,7 @@ end
 
 nginx_site "target_site", :enable => true, :notifies => :immediately
 
-package :git do
+package "git" do
   action :install
 end
 
