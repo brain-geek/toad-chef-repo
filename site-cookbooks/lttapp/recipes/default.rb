@@ -7,7 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-node.override['nginx']['install_method'] = 'source'
 node.override['nginx']['default_site_enabled'] = false
 
 include_recipe "nginx"
@@ -19,8 +18,11 @@ end
 
 nginx_site "target_site", :enable => true, :notifies => :immediately
 
-package "git" do
-  action :install
+%w{ git build-essential openssl libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev
+sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison ssl-cert pkg-config libgdbm-dev libffi-dev}.each do |pkg|
+  package pkg do
+    action :install
+  end
 end
 
 application "lttapp" do
