@@ -48,15 +48,20 @@ then
      exit 1
 fi
 
-sudo ./createvm.sh $HOSTNAME $IP
+
+echo "Creating VM with hostname: $HOSTNAME and ip: $IP"
+
+sudo vmbuilder kvm ubuntu -d /virt/$HOSTNAME --ip $IP -o --hostname $HOSTNAME -c vmbuilder.cfg --user brain --name user --pass password
+sudo virsh start $HOSTNAME
 
 sleep 30
+
+sudo "Bootstrapping VM with Chef"
 
 knife bootstrap $IP -x brain -N $HOSTNAME -P password --sudo
 
 knife node run_list add $HOSTNAME 'role[simple_webserver]'
 
 sleep 15
-
 
 knife ssh name:$HOSTNAME "sudo chef-client" -x brain -a ipaddress -P password
