@@ -1,8 +1,48 @@
 #!/bin/bash
-HOSTNAME=$1
-IP=$2
 
-echo 'Run me as user, please!'
+usage()
+{
+cat << EOF
+usage: $0 options
+
+This script creates and sets up VM.
+
+OPTIONS:
+   -h      Show this message
+   -i      IP for server
+   -n      hostName for server
+EOF
+}
+
+HOSTNAME=
+IP=
+
+while getopts “hn:i:” OPTION
+do
+     case $OPTION in
+         h)
+             usage
+             exit 1
+             ;;
+         n)
+             HOSTNAME=$OPTARG
+             ;;
+         i)
+             IP=$OPTARG
+             ;;
+         p)
+         ?)
+             usage
+             exit
+             ;;
+     esac
+done
+
+if [[ -z $IP ]] || [[ -z $HOSTNAME ]]
+then
+     usage
+     exit 1
+fi
 
 sudo ./createvm.sh $HOSTNAME $IP
 
@@ -13,5 +53,6 @@ knife bootstrap $IP -x brain -N $HOSTNAME -P password --sudo
 knife node run_list add $HOSTNAME 'role[simple_webserver]'
 
 sleep 15
+
 
 knife ssh name:$HOSTNAME "sudo chef-client" -x brain -a ipaddress -P password
