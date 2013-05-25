@@ -35,7 +35,6 @@ do
          i)
              IP=$OPTARG
              ;;
-         p)
          ?)
              usage
              exit
