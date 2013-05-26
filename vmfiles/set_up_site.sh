@@ -51,8 +51,7 @@ fi
 
 echo "Creating VM with hostname: $HOSTNAME and ip: $IP"
 
-sudo vmbuilder kvm ubuntu -d /virt/$HOSTNAME --ip $IP -o --hostname $HOSTNAME -c vmbuilder.cfg --user brain --name user --pass password
-sudo virsh start $HOSTNAME
+sudo -c "vmbuilder kvm ubuntu -d /virt/$HOSTNAME --ip $IP -o --hostname $HOSTNAME -c vmbuilder.cfg --user brain --name user --pass password && virsh start $HOSTNAME"
 
 sleep 30
 
