@@ -55,12 +55,6 @@ application "lttapp" do
       mode '0755'
     end
 
-    execute "rm -rf tmp" do
-      cwd new_resource.release_path
-      user new_resource.owner
-      environment new_resource.environment
-    end
-
     link "#{new_resource.release_path}/tmp" do
       to "#{new_resource.path}/shared/tmp"
     end  
