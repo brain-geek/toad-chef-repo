@@ -32,8 +32,10 @@ application "lttapp" do
   owner "brain"
   group "brain"
 
-  repository "git://github.com/brain-geek/load_test_target_app.git"
+  repository node[:application_repo]
   revision "master"
+
+  environment "WORKERS_COUNT" => node[:workers_count], "RAILS_ENV" => node[:application_env]
 
   restart_command "cd #{node[:application_path]}/current && bundle exec rake unicorn:stop prepare_data ; sleep 3 && bundle exec rake unicorn:start"
 

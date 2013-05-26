@@ -1,5 +1,9 @@
 default[:application_path] = "/var/www/ltt"
-default[:unicorn_port] = '8080'
+default[:application_repo] = "git://github.com/brain-geek/load_test_target_app.git"
+
+default[:application_env] = "production"
+
+default[:workers_count] = 1
 
 override['rvm']['user_installs'] = [ { :user => "brain" } ]
 override['rvm']['user_rubies'] = [ "1.9.3" ]
