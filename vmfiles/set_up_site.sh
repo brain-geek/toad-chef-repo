@@ -28,7 +28,7 @@ ROLE=simple_webserver
 MEMORY=128
 CPUS=1
 
-while getopts “hn:i:” OPTION
+while getopts “hn:i:r:c:m:” OPTION
 do
      case $OPTION in
          h)
