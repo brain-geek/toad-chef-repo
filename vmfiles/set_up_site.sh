@@ -70,7 +70,7 @@ sudo bash -c "vmbuilder kvm ubuntu -d /virt/$HOSTNAME --ip $IP -o --hostname $HO
 
 sleep 30
 
-sudo "Bootstrapping VM with Chef"
+echo "Bootstrapping VM with Chef"
 
 knife bootstrap $IP -x brain -N $HOSTNAME -P password --sudo
 
