@@ -26,7 +26,7 @@ sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool 
 end
 
 application "lttapp" do
-  action :deploy
+  action :force_deploy
 
   path node[:application_path]
   owner "brain"
