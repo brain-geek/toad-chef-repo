@@ -37,7 +37,7 @@ application "lttapp" do
 
   environment "WORKERS_COUNT" => node[:workers_count].to_s, "RAILS_ENV" => node[:application_env]
 
-  restart_command "cd #{node[:application_path]}/current && bundle exec rake unicorn:stop prepare_data ; sleep 3 && bundle exec rake unicorn:start"
+  restart_command "cd #{node[:application_path]}/current && bundle exec rake unicorn:stop prepare_data ; sleep 3 && bundle exec rake unicorn:restart"
 
   rails do
     database_template "database_sqlite.yml.erb"
