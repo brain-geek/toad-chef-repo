@@ -9,7 +9,7 @@
 
 include_recipe "build-essential"
 
-%w{git qt4-qmake libqt4-core libqt4-dev libqt4-webkit xvfb qt4-dev-tools libicu48 siege}.each do |name|
+%w{git qt4-qmake libqt4-core libqt4-dev libqt4-webkit xvfb qt4-dev-tools libicu48 siege dstat}.each do |name|
   package name do
     action :install
   end
