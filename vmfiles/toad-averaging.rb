@@ -1,25 +1,32 @@
-files = Dir.glob('*-0').sort
-
 require 'csv'
 
+if RUBY_VERSION =~ /1.9/
+  Encoding.default_external = Encoding::UTF_8
+  Encoding.default_internal = Encoding::UTF_8
+end
+
+#Filename structure: log<id>.log-<worker>
+
+
 puts "Filename;Avg response time;Number of requests per second"
-files.each do |filename|
+(1..20).each do |experiment_id|
   number = 0
   time_sum = 0
 
-  4.times do |file_number|
+  4.times do |worker_id|
     records = 0
-    f = filename[0...-1]+file_number.to_s
+
+    f = "log#{experiment_id}.log-#{worker_id}"
 
     CSV.foreach(f, :col_sep => ';') do |row|
       records = records + 1
       time_sum += row[0].to_f
     end
 
-    puts "#{f} has #{records} records"
+    #puts "#{f} has #{records} records"
     number = number + records
   end
 
-  puts "#{filename};#{((time_sum/number)/1000).round(2)};#{(number.to_f/60).round(2)}".gsub('.', ',')
+  puts "#{experiment_id};#{((time_sum/number)/1000).round(2)};#{(number.to_f/180).round(2)}".gsub('.', ',')
 end
 
